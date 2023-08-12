@@ -1,0 +1,84 @@
+# Process
+
+ A process is a unit of exexution that has its own memory space. Each instance of a JVM runs as a process. When we run a java console application, we're kicking off a process. When we run a javaFX application, we kicking off a process 
+
+Process hava it's own heap memory --
+ If one java application is running and we run another one, each application has its own memory space of heap. The first java application can't access the heap that belongs to the second java application . The heap isn't shared between them. They each have their own 
+ 
+# Thread
+ 
+ A Thread id a unit of execution within a process. Each process can have multiple threads. 
+ In java every process or application has at least one thread, the main thread , In fact just every java process also has multiple system threads that handel task like memory mgt and I/O  we as developers don't explicitly create and code those threads. Our code runs on the main thread, ot in other threads that we explicitly create 
+
+In addition to the process's memory, or heap, each thread has what's called a thread stack, which is the memory that only thread can access
+ 
+every java application runs as a single process and each process can have multiple threads. Every process has a heap, and every thread has a thread stack
+ 
+# Concurrency 
+ 
+ it refers to an application doing more than one thing at a time, now that dosen't necessaty means that the application is doing more than one thing at the same time. It means that origress can be made on more than one task. eg an application want to bring data and write, then an application can download a bit of data and then switch beck to writing it and repeat that process again and again until end
+
+ Concurrent means that one task dose't have to compleat before another can start 
+ 
+# 
+ A thread will terminate when it returns from it's run method implicitly or explicitly because it executes a return statement
+
+ We dont need to call run method inplicitly we need to call start method, because if we do that our thread will run from thread which is running
+
+ When we join a thread, what will happen that 2 thread will wait for 1 thread to terminate, and then it will continue to execute
+
+^ see file Thread
+
+# Synchronization 
+
+ We can synchronize methods and statements when a method is synchronized only one thread can execute that at a time, which prevents thread interfirace, race condition 
+
+ When working with threads, and need synchronization then we need to do synchronization in all areas, or else thread interferance can occur
+
+ when we synchronze we should only synchronize the code which we want to be synchronized, because if one thread is locked unnecessaary that that can affect user experience, make an peformance issue
+
+
+# Thread safe 
+
+ Thread safe means a developer has synchronized all the critical section code, and we as a developer don't have to worry about the thread intefirance
+
+ ^ see counter code file
+
+# times whwee a thread cannot terminate 
+
+ Reeding and writing reference variables in java is an automic operation so a thread can't be suspended in middle of an automic operation, 
+
+also a thread can't be suspended during reading and writing of primitiva values except long and double 
+ 
+ also a while reading and writing a var declared volitile
+
+extra -- (some collections are not thread safe -- ArrayList)
+
+ 
+# java.Util.Concurrent.locks -- lock interface
+
+ these don't have drawback that synchronized blocks have 
+ but we need to use lock, unlock in many places
+     private ReentrantLock bufferLock;
+	bufferLock.lock(); -- when you want a thread to get locked, for synchronization
+ 	bufferLock.unlokc() -- when you want to releas lock 
+ 
+ just symply using that we get into problem of messy code, problem of releasing the lock manually every time
+
+ so we use try finnally block -- using thsi we only need to unlock only in ome place, the other reason is exception handeling we might enter in an exception which we might not be handel properly, if we just use ReentrantLock, becuse before exception we want to releas lock properly, so we use try finally block
+ 
+ try { 
+      } finally { }
+
+# ExecutiorService
+
+ It allows us to focus on the code we want to run, without the fuss of managing threads and their life cycles, We creatn implementation of ExecutorService and give it to the task that we want to run without the details how the task will actually run, 
+
+ it make use of thread Pool -- it is a managed set of threads, it reduces the overhead of thread creation, specially in applications which use large no of threads, 
+
+ it can also set the max number of thread creation so that an application cannot reate excessive no of thread and bw wild 
+
+
+
+
+

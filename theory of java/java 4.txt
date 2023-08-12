@@ -1,0 +1,206 @@
+# Switch statement 
+ 
+ switch (value) { -- switch keyword followed by the value which you want to test .
+ 	case x :
+ 		break;
+	case y :
+		break;
+	default:
+}
+
+ value -- value which we want to check
+ case -- is used with switch statement for camparision 
+so in case x -- maens ( in the case where value euqals x execute that)
+ break -- tells us to terminate any futher checks
+ default -- if none of the above condition is true execute this code
+
+  int switchValue = 3;
+        switch (switchValue) {
+            case 1 :
+                System.out.println("value was 1");
+                break;
+            case 2 :
+                System.out.println("value was 2");
+                break;
+	    case 3: case 4 : case 5 : //to test multiple value using switch case
+                System.out.println("Was a 3, a 4 , or a 5");
+                System.out.println("Actually it was a " + switchValue);
+                break;
+            default:
+                System.out.println("was not 1 or 2");
+                break;
+        }
+
+	an if statement gives more flexibility as can test more variable 
+ 	but if variable is one and we want to test value for its different values 
+ We can only use Switch whith limited value like 
+ byte, short, int, char
+ Byte, Short, Integer, Character -- currsoponding wrapper
+ String
+ enum
+
+ long float double cannot be used with there wrappers also
+
+ fall through -- if one case is true then all bellow case code value will be executed untill a break is found 
+
+ enhanced switch 
+
+  switch (switchValue) {
+            case 1 -> System.out.println("value was 1");
+            case 2 -> System.out.println("value was 2");
+            case 3, 4, 5 -> { //to test multiple value using switch case
+                System.out.println("Was a 3, a 4 , or a 5");
+                System.out.println("Actually it was a " + switchValue);
+            }
+            default -> System.out.println("was not 1, 2, 3, 4, or 5");
+        }
+
+ this come after java 9 , is beginner friendly and also have some enhanced syntax such as see case 3 , no problem of fall through , colen removed with arrow token
+ still you can use old one for back-word capablity
+
+ yield -- the yield statement in switch is used when your switch statement is bieng used as a switch expression returning a value 
+ -> "1st; -- but is we want to make a code block 
+ -> { yield "1st"; } -- we use this if we want a code block to execute 
+
+ in Switch if a var is declared in one case then it can be used in the preceding case's.
+
+# Loops
+ Statement will contimue to execute a block of code repetatively intil a condition or some set of conditions is met
+ 
+ For -- used when we want to iterate over a set of values 
+ while - execute until a specified condition becoms false
+ do while - execute atleast onse , and continue after a condition becoms false 
+
+ for (init; expression ; increment) {
+	// block of segments
+	}
+
+the initilization section declares , initilize a variable before the loop begins
+expression == onse it becoms false the loop will end processing
+
+
+ While - if you want to loop until some condition is met, that 's not associated with a known value - when you don't know how many time to itterate -- real life when we want to enter a user to enter a user name and pasword for a certain time and after that show remember it prompt 
+
+ while (expression) {
+	// block of statement
+ } 
+
+   int j = 1;
+   while (j <= 5) {
+     System.out.println(j);
+     j++;
+ }
+
+  int j = 1;
+  while (true) {
+
+  	  if(j <= 5) {
+            break;
+            }
+
+         System.out.println(j);
+         j++;
+   }
+ This is also a common practice.
+
+ do {
+    // block of statement
+ } while (expression);
+
+
+ Continue  
+ This statement in it's simplest form ,will stop executing the current iteratoin of a block of code in a loop, and starta new iteration.
+
+ int number = 0;
+ while (number < 50) {
+ 	number += 5;
+	if (number % 25 == 0) {
+		continue; -- partially skip code execution in some cases.
+	}
+	System.out.printnl(number + "_");
+}
+
+# Local vaialble and scope
+
+ A local varible is called local because it is avaliable for use by the code block in whaich it was declared. 
+It is also available to code block that are contained by a declaring block 
+eg inside a block -- lame eg method -- it's if else can access its variable but outside its block the variable of a method cannot be accessed
+
+ -- A local variable is a way to store and mainpulate temperary data.
+
+ A Scope describe the accessibility of a variable 
+ 'In scope ' means the var can be used by an executing block or any nested blocks.
+ 'Out scope ' means the var is no longer avaliable.
+
+ Local variable are always in scope, in the block theu are declared 
+ They are also in scope for any nested blocks, or blocks contained within the outer block
+ 
+ Tip == For redability consider method caling insted of deeply nested blocks 
+
+ Best Practice -- for declaring a variable 
+
+ to declare and initilize valiable in the same place if possible - sab variable eak jegha
+
+ And to declare var in the narrowest scope possible -- if i need a var only for an if then declare at there only
+
+
+# Class 
+ 
+ A custom data type
+ A special code block that contains method
+ 
+ Describe about information , or data to be filled in 
+ can be some times refferd to as a cooke cutter from which shape of an object is defined , there is also no limit about no of objects we can create.
+
+# Object 
+ 
+ An object is called an instance of a particular class -- an object is build by instanciatin a class , 
+ Object and instance are interchangable terms
+
+# Parsing Data
+ 
+ Data parsing is converting data from one format to another 
+
+ When we read data in, form either a file or from user input, it's common for the data to be initially a string which we need to convert to a numeric value
+
+passing the string data and extracting a numaric value form it
+ java provides a way to parse a string into a number this is done using the wrapper class 
+
+ werpper	Wrapper Method
+
+ integer	parseInt(String)	-- there are other's but these are the most common one 
+ double		parseDouble(String)
+
+ String usersDateOfBirth = "2003";
+ int dateOfBirth = Integer.parseInt(usersDateOfBirth);
+ -- in this integer is the class . is the operator parsInt -- is the static method inside the wrapper class  
+
+# Taking input
+ 
+ System.in -- like System.out  java provides system.in ehoch can read input from the console or terminal . It's not easy to use for brginrts , and a lot of code has been built around it, to make it easier
+
+ System.console - java's solution for easier support for reading line and promoting user for info , ide's dissable it 
+ 
+ Command  line args - this is calling the java programs and specifying data in the call. this is verry commonly used but , dosen;t allow us to create an interactive applications in loop in java
+
+ Scanner -- build to be a common way to read input, either using System.in or a file , Brginner friendly
+
+
+# Exception handeling
+
+ An exception is an error that happens in code
+ Some types of errors can be predicted and named
+
+ Catching an exception
+ an exception is caught, first by reating a code block around the code, that might get the error
+ rhis is done with the try statement code block
+
+ try {
+	// statement that might get errors
+ } catch (exception e) {
+	// code to 'handle' the exception 
+ }
+
+ Scanner class can parse primitive types and strings 
+ To use scanner class, we need to create an instance/object of scanner 
+ we'll use the keyword new to do it

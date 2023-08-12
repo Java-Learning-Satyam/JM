@@ -1,0 +1,42 @@
+There are two main approaches to deal with errors when programming 
+ lbyl -- look before you leap -- look befor we do any processing 
+ eafp -- easy to ask for forgivness than permission -- go ahed and peform an operation and if something goes wrong then do ecception handeling 
+
+ in java it is more common to lbyl
+
+ private static int devideLBYL(int x, int y) {
+        return (y != 0) ? x/y : 0;
+    }
+    private static int devideEAFP(int x, int y) {
+        try {
+            return x/y;
+        } catch (ArithmeticException e) {
+            return 0;
+        }
+    }
+
+# Exception ?
+
+ An exception is an event which occurs during execution of a program that disrupts the normal flow of the program's instructions
+ inShort " Something went wrong SomeWhere "  - it leads us to two question
+ a) what went wrong,
+ b) what can we do about it
+
+# call stack is a list of all the methods calls at any particular point in a programs execution,
+every time a method is called it is pused on to the stack and when a method is returned it's pop out of stack
+
+ Throughable constructor fills in the stack trace for the exception
+ 
+# JAVA I/O 
+
+ input -- means reading input from a file 
+ output - involves writing it to some destination 
+ 
+ i/o can be peformed using ither byte or character
+ if you are using byte -- it will be used for binary eg if you are storing a variable or a class it woll be usefull to store data using binary
+
+ if you are using Character -- it will be used for Character streams such as spreadsheet etc.
+
+ serial or sequential files  or random access files
+
+ 

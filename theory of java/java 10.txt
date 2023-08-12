@@ -1,0 +1,50 @@
+Section 12 generics:
+
+java supports generic type, such as classes, records and interfaces.
+it also supports generic methods.
+
+genric class 
+ 
+ class YouTellMe<T> { // T for type convension is that that use only singel letter, you can use any letter 
+ 
+	private T field;
+}
+
+ A few letters are reserves for special use cases 
+ The most commonly used type perameter identifers are :
+ E for elements 
+ K for key (used for mapped types)
+ N for number
+ T for type
+ V for values
+ S,U,V etc for 2nd, 3rd, 4th types.
+
+ You can't use a generic type with a primitive Type
+
+ public class Team<T extends Player> //   using this we set an (upper bound), on the types that are allowed to be used with this class
+
+ The Generic method
+ 
+ A generic method can be used for collections with type arguments, as we just saw, to alow for variability of the elements in the collection, without using a raw version of the collection
+
+ public <T> String myMethod(T input) {
+	return input.toString();
+ }
+
+# WildCard
+
+fi we are creating a method generic then we can use a wild card to specify a bound
+ Wildcard can only be used in a type argument, not in the perameter declaration
+ A wildCard is repredented with the ( ? )character.
+ A wildcard means the type is unknown 
+ A wild card cannot be used in an instantiation of a generic class
+
+ var myList = new ArrayList<?>(); this is wrong cant be used in instanciation expression
+
+ unbound List<?>
+
+ upper bound List<? extends Student>  A list contaning any type that is a student or a sub type of student can be assigned or passed to an argument specifying this wildcars
+
+ lower bound List<? super LPAStudent>  A list contaning any type that is an lpaStudent or a super type of lpaStudent, so in our case that would be Student and object
+
+ Compare is used while comparing two objects, compareTo() is used to compare two arraylist

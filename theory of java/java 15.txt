@@ -1,0 +1,150 @@
+# Streams
+
+ Oracle's java documentaion describes a stream as 
+
+ A sequence of elements supporting sequential and parallel aggregate operations
+ Streams are a mechanidm for describing a whole series of process, before actually executing them   
+
+# A stream is different from a Collection
+
+ The stream and the collection types were designed for different purposes
+ 
+ A collection is used to store and manage a series of elements in java, providing direct access to the Collection elements 
+
+ you can use collection to manipulate or query a set of data
+
+ There's noting you can do with streams, that you coudn't alredy do with a collection
+
+ However, a stream was designed to manage the processing of elements 
+
+ Streams don't actually store elements, insted these elements are computed on demand from a data providing sourse 
+
+# The Lazy Stream
+
+ Another important differance is that streams are lazy, like lambda expression variables
+ When you call many of the methods on a stream, execution may not immediately occur
+ Insted,you'll need to invoke a special operation on the stream, like you would by calling a lambda's functional methods
+ This special operation is called as terminal operaiton
+
+# Why use a Stream?
+
+ They make the code to process data uniform, consise and repetable, in ways that feel similar to a database's sql
+
+ When working with large collection, parallel streams will provide a peformance advantage
+
+
+		bingoPool.stream()  // in this bingoPool is the sourse
+         -----  .limit(15)
+  intermediate  .filter(s -> s.indexOf('G') == 0 || s.indexOf('O') == 0)
+   Operations   .map(s -> s.charAt(0) + "-" + s.substring(1))
+         -----  .sorted()
+                .forEach(s -> System.out.print(s + " ")); // terminal Operation
+
+source and terminal operation is important 
+if there is no intermidate operation then also no problem
+
+ from .stream to terminal -- for each this whole is called a stream Pipeline
+
+ Every intermediate operation process element on the stream, and returns a stream as a result
+
+# You can't reuse a stream
+
+ Onse you invoke a terminal operation on a stream, you can think of the pipeline as being opened, and the flow beginning
+
+ The flow is allowed to continue until all provesses have been performed and a result produced
+ 
+ At that point the valve is shut and the pipeline closed
+ you can't turm it back on, or reuse it for a new source
+
+ if you want to do the same sort of thing woth a different var for one intermediate operations you'd need to set up a new pipeline
+ 
+# Streams are lazy 
+
+ Imagine the stream pipeline as a black box
+ the source is your input, the result foyour terminaloperation is your output
+ everything in between, isn't going to happen until someone tell that termial operation to start
+ what actually happens, may not happens exactly as you described it, or in the order you've specified
+ Execution of the intermediate operations id dependent, 1 on a terminal operation being specified, and 2 on an optimization process
+
+ if you do anything eles in your intermidate operation other than stream operation the operation may totally not get executed 
+ eg if in filter, the stream only contain G and you also specify O the operation may not compleatly execute
+
+ 
+ Stream.concat(Let you to create a network of pipeLine, with different operation for each different stream operation)
+ 
+ .generate(this method takes a suppiler lembda return value, dosen't take any arguments, an overloaded verson can be used to remove the limit operation which arguments are as follows, seed, lambda to define limit, unimary operator)
+ 
+ .limit(limit the number)
+ 
+ .range -- works only on primitive streams , sepcify just (start, end-Value) value will be ++1 in each iteration, it works form 1 - 99
+ 
+ .rangeClosed(same as renge but include end value also)
+ 
+ .filter -- Elements that match the filter's Predicate(means only true are kept) are kept in the outgoing stream (Predicate<? super T> predicate)
+ 
+ .takeWhile -- take element only till the condition is true, if false stop
+ 
+ .dropWhile -- check only happens while the Predicate condition becomes false, onse false no condition is further checked, if the condition becoms false, it moves past the loop  altogether, if you combine it with takeWhile you can effectly describe the range you want
+ 
+IntStream.rangeClosed('A', (int) 'z')
+                .filter(Character::isAlphabetic)
+                .dropWhile(i -> Character.toUpperCase(i) <= 'E')
+                .takeWhile(i -> i < 'a')
+                .forEach(d -> System.out.printf("%c ", d));
+
+ they both work well in oderd stream if the stream is un Oderd, oracel tells us that it will produce an non-deterministic result
+
+ .skip -- This method skips elements, meaning they won't be part of the resulting stream
+ 
+
+# Intermediate operations that operate on every element
+
+  .map - peforms replace action, This is function applied to every element in the stream. Because it's function, the retutn type can be differernt, which has the effent of transforming the stream to a differernt stream if different types
+
+ .peek -- this function desen't change the stream, but allows you to peform some interim consumer function while the pipeline is processing, according to oracels documentation peek is used in deebuging
+
+ .sorted -- just like sort.naturalOrder -- 2 versions 
+ 1)  uses naturalOrder , elements must implement comparable
+ 2) if elements don't uses Comparable, you'll want to use sorted and pass a Comparator
+ file -- streamIntermediate
+
+# Reduction Operations 
+
+ REduction operation combine the cintents of a stream, to return a value, or thry can return a collection
+
+ collect
+ reduce
+ toArray
+ toList
+
+# What 's the optional Type?
+
+ Optional is a generic class, whose purpose is to be a contaioner for value which may or may not be null 
+ 
+ It was created by java's engineers, to adderss the problem of the NullPointerException, Which is one of the most common errors in java
+ 
+ This type is primarily intended for use as a metod return type, under specific conditions. 
+
+# No Result is valid vs. No Result is a problem 
+
+ Optional tries to solve the problem of when no result, or no data, is perfectly valid situation, vs when no result might really be an error
+
+ no data make sence -- no middel initial in name 
+
+ Optional is a way of telling you the that a value may not be present, therefore you can ignore the value in processing 
+
+ optional is another generic class, so you an declare it like any other type, with type arguments
+
+ but you don't construct an optional
+
+ Insted you use one of the factory method
+
+ Optional<T> empty()
+ Optional<T> of(T value)
+ Optional<T> ofNullable(T value)
+
+.Random 4 num , 3 small alpha, 2 big alpha , 3 special symbol 
+
+
+
+ 

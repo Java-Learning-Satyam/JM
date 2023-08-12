@@ -1,0 +1,177 @@
+# Mutable vs Immutable
+
+ Objects hava state, which is the data stores in instance fields
+ State can change after an object is created, either intentionally or unintnetionally.
+ When state remeains constant throughout the lifetime of the object, and code id prevented from changing the state, this object is calles an immutable object
+
+ An immutable object is an object is an object whose internal state remains constant
+
+ A mutable object is an object whose internal state does not remain constant
+
+-> Immutable Objects - Adventages
+ 
+ An immutable object isn't subject to unwanted, unplanned and unimpleneted modifications, known as side-effects
+
+ An immutable class is inhereti cally thread-safe, because on threads at all can change it, onse it's been constructed.
+
+ This allows us to use more efficiently collections and operations, which don't have to manage synchronization of access to this objects
+
+ -> immutable Objects - Disadvantages
+ 
+ An immutable objects can't be modified after it's been created
+ 
+ This means that when a new value is needed, you're probably going to need to make a copy of the object with the new value
+
+# The Final modifier in java
+
+ When we use the final modifier, we prevent any futher modifications to that component 
+
+~ A final method means it cant be overridden by a subclass. 
+
+~ A final field means an object field can't be reassigned or given a differert value, after its initilization.
+
+~ A final static field is a class that can't be ressigned, or given a different value, after the class's initilization process A field declares on an interface is always public, static and final.
+
+~ A final class can't be overridden, means no class can se it, in the extended clause.
+
+~ A final variable, in a block of code, means that once its assigned value, any remaning code in the block can't change it.
+
+~ A final method perameter menas, we can't assign a different value to that perameter in the method code block.
+
+ When an liberary class is being utilized as designed, then we call that S W A D
+ System Works As Design
+
+ Method Hiding
+ jis type ka type hoga uss type ka static method run hoga
+ eg BaseClass base = new BaseClass();
+ type - BaseClass
+
+ $ Method Arguments get initilized implicitily when the method is invoked
+
+# Controlling Change
+
+ Java provides mechanism to cinteil changes, and wxtensibility of your code, at mainy different levels
+
+ You can prevent:
+
+~ Changes to data in instance filds ehich is calles the state of the object, by not allowing clients or subclasses to hava access to these fields
+
+~ Changes to methods, by not allowing code to override or hide existing functionality
+
+~ your classes from being extended
+
+~ Instantiation of your classes
+
+# Immutable Objects 
+  
+ An immutable onject dosen't change state, once it's created
+ An immutable object is a secure object, menaing calling code can't maliciously or mistakely alter it
+ An immutable obj simplifies concurrency design
+
+# Strategies for Declaring a class, to produce immutable objects
+
+~ Make instance fields private and final
+~ Do not define any setter methods
+~ Create defensive copies in any getters
+~ use a Constructor or factory method to set data, making copies of mutable reference data
+~ Mark the class final, or make al constructors private
+
+
+Shallo copy -- Copying only refrences not the whole object
+Deep copy -- Actual objects get copied not refrences -- going deep until everything is copied
+
+# The instance initilizer block
+
+~ An instance initilizer is a block of code declared directly in a class body
+
+~ This code gets executed when an instance of the class is created
+ 
+~ Instance initilizer are exexuted, before any code in class constructors is executed
+
+~ you can have multiple initilizer bolck
+
+~ They will be exexuted in teh order they are declared
+
+    private final String name;
+    
+    private final String dob;
+    
+	{
+        	name = "Satyam";
+        	dob = "17/07/2003";
+        }
+
+ $ another way of initilizing a final instance field is to call a private final method
+
+ # Static initializers
+ 
+~ A static initializer is called the first time a class is references or constructed
+ 
+~ A class can have any no. of static initilization blocks
+~ They can be declared anywhere in the class body 
+
+~ They can be declared anywhere in the class body
+
+~ They're called in teh order they appear in teh source code
+ 
+~ you might use this to set up some environment data or log infirmation, that's related to the class before it can be used
+~ Remember, this will get executed only during tthe class's construction and not each instance's construction
+
+# Record Constructors comes in three flavors
+
+ The Canonical, or long constructor is the implicitly getnerate constructor. You can explicitly declare your own, which means the implicit one won't get generated.if you do declare your owm, you must make sure fields all get assigned a value, if you declare one canonical constructor you cannot create another constructor, you also can't create an compact constructor also 
+
+  The custom constructor is just an overloaded constructor, it must explicitily call the canonical constructor as it's first statement, it does many things for us eg declaring args  implicitely for us etc..
+
+ The compact, or short constructor is a special kind of constructor, used only on records it's succicnt way of explicitly declaring a canononical constructor
+
+ The compact constructor
+
+~ you can't have both a compact constructro and an explicit canonical constructor
+This constructor is declared with no paranthesis, so no aggs
+ public Person { ..... } you can check, only validate fields here
+
+~ It has access to all the arguments of the canonical constructor. Dont confuse the args with the instance fields
+ 
+~ You can't do assignments to the instance fields in theis constructor
+
+~ The implicitly canonical constructor's assignments occur after teh execution of this code
+
+# Packaged with java 
+
+ this is javap
+ It lists class members, by default just public and protectedmembers oin the class file
+ This helps ud 'see' implicit code in the compiled class file
+javap -p out/production/ConstructorsProject/dev/lpa/Generation.class
+(javap -p) -- -private or -p
+Shows all classes and members.
+ 
+ And then the path of file from out
+
+
+# enum Constructor 
+ 
+ Constructors in enum cant be public it will always be an private one
+
+# Final Classes
+ 
+ Using the final keyword on a class means it can't be extended
+ You declare a class final if its defination is complete, and no suchclasses are desired or required 
+ Enums and Record are final classes
+ Subclasses can take advantage of mutable fields on parent classes, if the parent classes are't implementing defensive code
+one of the easiest way to prevent thos, is to make your class final
+
+# Sealed Classes
+
+ Jdk 17 introduced a new modifie, sealed, for our classes and interfaces
+ This modifier can be used for both outer tyoes and nested types 
+ When used, a permits clause is also required in most cases, which lists the allowed subclasses
+ SubClasses can be nested classes, classes declared in the same file, ckasses in the packafe, or if using java's modules in the same module 
+ Whatthis menas though, for this specific convensation, is that all our code so far, since jdk9 is part of what's called, the unnamed default module
+ Because of this, We cant use subclass in the permits clause that are in other packages
+ A sealed class and its direct subclass create a circular refrence
+
+
+ 
+
+ 

@@ -1,0 +1,62 @@
+Nesting classes (or types) within another class (or type)
+
+ A class an contain other types within the class body, such as other classe, interfaces, enums, and records
+ 
+ these are calles nested types, or nested classes are tightly coupled, meaning their finctionality is interwoven
+
+ Types of nested class
+ 
+ Static nested class - declared in class body. much like a static field, access to this class is through the. Class name identifier
+
+ intance of inner class - declared in class body. this type of class can only be accessed through an instance of the outer class
+
+ local class - declared whithin a method body
+
+ anonymous class - unnamed class, declared and instanciated in same statement
+
+# Static nested Class 
+
+ eak class k inside dusri static class dalna
+ 
+ The static nested class is a class enclosed in the structure of another class, declared as static
+ 
+ this means the class if accessed externally, it requires the outer class name as pate of the qualifying name
+
+ this class can access private attributes of outer class
+
+# Inner Classes
+ 
+ inner classes are non-static classes, declaring on an enclosing class, at the menber level
+ 
+ inner classes can have any of the four valid access modifiers
+ 
+ an inner class has to access to instance members, including private members of the enclosing class
+
+ To create an instance of an inner Class, you first must have an instance of the enclosinh class
+ From the instance you call .new, followed by the inner class name and the perameters, taking any construntor args
+
+ EnclosingClass outerClass = new EnclossingClass();
+ EnclosingClass.InnerClass innerClass = outerClass.new InnerClass();
+
+ # Local Classes 
+ 
+ Local classes are inner classes, but delared directly in a code block, usually a method body.
+
+ Because of that, they don't have access modifiers, and are only acessible to that method body while it's executing
+ 
+ Like an inner class, they have access to all fields and methods on the enclosing class
+ 
+ They can also access local variables and method arguments, that are final or efficitively final
+ 
+# Anonymous Clases
+ 
+ An anonymous class is a local class that dosen't hava a name
+
+ All the nwsted classes we've looked at so far have been created with a class decleration 
+ 
+ The anonymous class is nerver created with a class decleration, but it's always instantiated as a part of an expression
+  
+ Anonymous class are used a lot less, since the introduction of Lemda Expressions in jdk 8.
+
+ But there are still some use cases where an anonyomus class might be a good solution 
+

@@ -1,0 +1,183 @@
+jshel 
+
+list -- shows us the history of java code run in jshell
+/list -start show connand that run at start
+
+{ to write lines of code and execute when } it is closed
+^c use to exit to {}
+/exit to exit
+
+hello world in j shell in java
+
+System.out.print("Hello World");
+
+/var -- to list all the variable used in jshell
+
+ int myMinIntValue = Integer.MAX_VALUE; -- to get the max value of the variable intiger
+ int myMinIntValue = Integer.MIN_VALUE; -- to get the min value of the variable intiger
+ System.out.print(" Integer min value = " + myMinIntValue); -- use + to print value of multiple data type 
+ 
+
+# Statement
+ it is a complete command to be executed it can include one or more expressions 
+ 
+ A DECLERATION statement is used to define a variable by indicating tha data type and name ,optionally to set the var to a specific value
+
+# keywords
+ link --- https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html#jls-3.9
+ java has 51 reserved words that are called keywords 
+
+# Variable
+ are a way to store information in our computer ,can be accessed by a name we give them
+
+ When we put something in "" it is called a string litral
+
+ variable is just declaeed just as in c, c++ int myVariable = 10;
+
+ We cannot re-declare a variable in java thats a error 
+like we cannot do int a = 10; again int a = 10 ; thata an eror
+but in a jshell we can do that but not in ide
+
+# Expression
+
+ expression is the code segment that is on the right side of the equals sign in an assignment or decleration statement
+
+# Java code is case sensitive -- which also include keyword , variable name
+	keywords must be in lowercase 
+
+# Wrapper Class 
+ 
+ Java uses the concept of a wrapper class , for all of its eight primitive data types
+ A wrapper class provides simple operations , as well as some basic information about the primitice data type , wich canot be stored on the primitive itself
+ we saw MIN_VALUE AND MAX_VALUE , are elements of this basic information , for the int data type
+ wrapper class have name same as the datatype just the name starts with uppercase letter
+
+ 2,147,483,647 -- cannot write so java give this 2_147_483_647
+
+# Data type 
+ byte store the shortest rane -128 TO 127			size 8
+
+ short is in between  	       -32768 to 32767 		size 16
+
+ long store the longest reange , 
+ To declare a long you need to specify L at the end of decleration eg long myval = 1000L; if the size of the value is grater then the size of intiger i.e 2.14 billino  because the java will treat value less then it as int 
+ size = 64
+
+ System.out.print("Long value size " + Long.SIZE); -- used to get size of a data type
+ int size 32 bit
+
+# Casting 
+ 
+ casting means to treat or conert a number , from one type to another 
+ We put the type we want the number to be in perantheses like 
+ (byte) ( myBitMin / 2 );
+ short myNewShortValue = (short) (myMinShortValue / 2);
+
+ short myNewShortValue = (myMinShortValue / 2); -- this type dont work because the compiler dont kno th value and treating the statement as an int  -- this is because java uses int by default -- because in this the value may be long or unexpected the compiller through an error
+ 
+short myNewShortValue = (-128 / 2); -- though this will work because the compiler know the value at the time of compiletion  
+
+# Folating point numbers
+ 
+ Floting point numbers are also called real numbers 
+ We use them when we need more precession in calculations
+ There are two pimitive types in java for expressing floating point numbers , The  FLOAT and DOUBLE , Double is java's default type for any decimel or real number
+ We use DOUBLE because it is fast , liberaries are written which uses double , chips can easily calculate value of a double other than float
+
+ In general baoth float and double are great for floating point operations
+
+ But nither is used when precise calculatins are requires - this is due to a limitation with how a floating point num are stores , not ajava problem as such 
+
+ Java has a class calles BigDecimal that overcomes this.
+
+ PRECESSION  it refers to the format and amount of space occupied by the relevent type as compared to int double can represent a small value but a larger decimal value i.e it is used
+
+ if you declare a double then add suffics d / D at the end is option 
+ if you are declaring a float then adding a suffic F / f is required if you are assigining a real number to a variable 
+
+ E in the java -- scientific notations can be easily be seen as E38 = 10 to power 38 , the phrase " 10 to the power " 
+
+$ jshell pound to kg
+
+  double myPounds = 200d;
+  double myKiloGrams = myPounds * 0.45359237d;
+  System.out.print(myKiloGrams);
+
+# Char , string
+ a char holds one , and only one , character -- use of char in rela world -- last key pressed by a user in game , loop programmetically through the letters in an alphabet. 
+ A char size 16 bits
+
+ we can assign a char in memory by 3 ways 
+ 
+ char mychar = 'D';
+ char mychar = '\u0044'; -- unicode method
+ char mychar = 68 ;      -- decimal value
+
+ A String is a class that contain a sequence of characters
+ strings are immutable - as we concatinate a new string in an old string then new string is created autometically by java compiler and old one is discarted from memory
+ if we add a number to a string then the numbers is also treatd as a string  
+
+# Boolean
+ it can stoe 1,0 true or false , right or wrong
+ developers often use "is" prefix for declaring a boolean variable name such as { isCustomerOverTwenty , isElegibleForDiscount , isMarried } etc
+ bool isMarried = false;
+
+# string 
+ A string is not a primitive data type in java else it is a class 
+ A string can hold multiple characters , literals are stored in double quotes
+
+$ string concatination 
+  String myString = "This is a string";
+  System.out.print("myString is equals to " + myString);
+  myString is equals to This is a string
+
+you can also use unicode in a string like
+ myString = "I wish i had  \u00241,000,000.00";
+ myString ==> "I wish i had  $1,000,000.00"
+
+
+# Data type revise
+  So java has 8 primitive data type 
+	whole number	- byte , short , INT , long
+	realnumber		- float , DOUBLE
+	single character  - char
+	boolean values    - boolean
+
+painting by cammille pissarro -- extra not included
+
+# Operators
+ 
+ Q what is a operator
+ operators in java are special symbols that peform specific opertions on one ,two, or three operands, amd then return a result.
+	
+ Q Wahat are operands
+ An operand is a term used to describe any object that is manipulates by an operator
+ int myVar = 15 + 10; -- so 10 and 15 are the operands , Variables can also be an operand
+
+ Q what are experssions
+ An expression is formed by combining variables , literals , mathods return values and operators int myVar = 15 + 10; in this 15 + 10 is the expression 
+ 
+# Abbrivated form or shorthand operators
+ incremanting by one , same as decrement 
+ result++ -- this is postfix increment
+ 
+ result+=1 ; compound assignment operator with + sign we can +, -, /, *,  with any num insted of 1
+ these both are stand alone statement
+ the compound assignment operator
+ x -= y 
+ is often said to be
+ x = x - y 
+ but that is not entirely true if y is not the same data type as x
+ x -= y 
+ is really
+ x = (data type of x ) (x-y) -- it removes the error of loosely conversion this is done implesitely
+ so 
+ result -= 5.5
+ is really 
+ result = (int) (result - 5.5); 
+
+  {
+   ...>     int result = 1;
+   ...>     result -= 1;
+   ...>     System.out.print(result);
+   ...> }

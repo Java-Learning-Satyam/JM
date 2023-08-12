@@ -1,0 +1,91 @@
+# Composition
+ Composition is another component of oop 
+ Inheritance defines an IS A relationship
+ Compisition defines a HAS A relationship
+
+ Inheritance is a way to reuse functionality and attributes. 
+ Composition is a way to make the combinatio of classes, act like a single coherernt object.
+
+As we know java allows to inherit only form one parent so we can use Composition so we can use other calss also in our class 
+
+ public class PersonalComputer extends Product {
+// we would run into problem if we only have inheritance in our program of we add extra functionality in our program by adding these classes Monitor etc... 
+    private Monitor monitor;
+    private ComputerCase computerCase;
+    private MotherBord motherBord;
+} 
+
+ As a general rule, ehen ypu're desigining your programs in java, you probrbly want to look at composition first.
+
+# Encapsulation
+ in java, encapsulation means hiding things, by making them private, or inaccessible.
+
+ Why to hide things in java?
+ To make the interface simpler, we may want to hide unnecessary details
+ To protect the integrity of data on an object, we may hide or resteict access to some of the data and operations
+ To decouple the publidhed interface from the internal details of the class, we may hide actual names and types of class members
+
+ if we do not encapsulate 
+ melafied changes can be made to our code  
+ change in onr field can bring you in lot trubel if code liberary is very big 
+ proper checks cannot be follwed before creating an object
+
+# Polymorphism 
+ Polymorphism, means many forms 
+ it lets us write code to call a method, but at runtime, this method behaviour can be different, for different objects
+
+ movie.getMovie() method sai different types of object bana lia like comedy movie object , adventure movie object, depending upon args passed , in that method we use switch case to decide at runtime about what object ot create 
+
+ The factory method is a creational design pattern, i.e., related to object creation.
+ The idea is to create a factory class with a single responsibility to create objects, hiding the details of class modules from the user.
+ 
+ # Var 
+ Var is a special contextual keyword in java, that lets our code take adventage of local Type Inference.
+
+ By using var as the type, we're telling java to figure out the compile-time type for us
+ 
+# instanceOf Operator 
+ The instanceof Operator, lets you test the type of an object or instance.
+ The refrence you are testing, is the left operand
+ The type you are testing for is the right operand.
+ 
+ UnknownObject instanceOf Adventure 
+ this check if the instance is of Adventure or not
+
+ else if (unknownObject instanceof ScienceFriction syfy) {
+            syfy.watchMovie(); // if this condition comes to be true then object will be created
+        }
+ 
+
+# Package
+ A package is a namespace that organizes a set of relate types
+ in general a package correspands to a folder or directiry on the os, but this isn't a requirement
+
+ The package structure is hierarchical, meaning you group types in a tree fashion
+ you can use any legal java identifier for your package name, but common practice has package names as all lower case
+ The period seperates the hierarchical level of package
+
+ you can use as many impurt statement you want to import but only one package  
+ import java.util.*; -- it import all classes after this refrence / from this package
+ 
+ package let us re-use commom class names accross different lib or applications, and provide a way to identify the correct class, either with an import statement, or a qualifying name
+
+ let us org our classes by functionality or relationship
+ also helps us in encapsulation
+
+ common practice is to reverse domain name to start your package 
+ eg e-tun.com
+ com.e-tun  
+
+ Package statement needs to be the first statement exception to comments  
+ after that imports comes
+
+ FQCN (Fully Qualified Class Name) - thic consists of package name and the class name
+ 
+ package dev.lpa.package_one
+ public class Main {}
+ 
+ so fqcn is dev.package_one.Main
+
+ You can't import files from the default package  
+ 

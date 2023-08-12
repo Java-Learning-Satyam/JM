@@ -1,0 +1,366 @@
+# Object Oriented Programming 
+
+ What is Object Oriented Programming?
+ Way to model to model real world objects, as software objects, which contain both data and code 
+ it's sometime called as class based programming 
+ Class-based programming starts with classes, which becoms the blueprints for objects.
+ 
+ objects - let's us look at things around us , there are many objects 
+ such as mouse , door, pillo ,computer, ant etc
+ each object has tow things 
+ 1) state -- ram ,os , hhd size , monitor size -- these are characteristics about the item , that describe it
+ 2) behaviour -- booting up , shutting down , sound output etc -- actions that can be peformed by the object, or upon the object
+
+ There are four ways to create new StringBilder object, using the new keyword:
+ 1 Pass a String
+ 2 Pass no arguments at all.
+ 3 Pass an integer value
+ 4 Pass some other type of char sequence 
+
+ Protected - any class or sub class can access this field , same package also access this field 
+
+ Modelling real world objects as software objects, is a fundamental part of oop
+ 
+ Now, a software oject store it's state in fileds, called variable or attribute
+
+ A class is a templet, or a blueprint for creating objects
+
+ The class describe describe the data (field) and the behaviour (methods) , that are relavent to the real world object we want to describe
+
+ A class member can be a field , a method , or some other type of dependent element
+
+ Any method that operates on instance needs to be non-static
+
+ When creating a class in java the first letter must be uppercase
+
+ Access moifier -- this define what access other calss have to the class we are creating 
+
+ Classes can be organised into logical grouping's which are called packages
+
+ A class is said to be a top-level class , if it is defined in the sourse code file, and not emclosed in the code block of another class type or method 
+ it can only have public , none acces method
+
+ protected -- only same package , and any subclasses in other package , have access to the members
+ 
+ private - another class can't access this member
+
+ if access modifier is omited member only accessible to same package -- package access 
+
+Encapsulation 
+ 
+ practice of hiding fields, and some methods, from public access
+ Generally we soluld create a class, set it's data private and then create method to access that data -- good parctice - protection , good , safe public interface , change in class not affect the whole
+
+ What is null?
+ null is a special keyword in java, meaning the var or attribute has a type, but no refrence to an object 
+ This means that no instance, or object is assigned to the variable or field
+ Fields with primitive data type are never null
+
+ private String maker;
+    public String model;
+    public String color;
+    public int door;
+    private boolean convertable;
+
+these are fields in a class car not variable, java assign default values to fields, if not assigned explicitely
+ booloean -- false 
+ else all primitive data type - 0 , double , float - 0.0
+
+  private String maker = "Tesla";
+    public String model = "Modelx";
+    public String color = "Black";
+    public int door = 2;
+    private boolean convertable = true;
+
+
+ Here i assign default value 
+ But as the data is private we cannot assign a value using . notation so...
+ not we can make fields public , create a package as that is not a good practice 
+
+ There fro we use getters , setters 
+ Getter
+ method on a class, that retrives the value of a private fild, and return it 
+ public int getDoor() {
+        return door;
+    }
+ calling --        System.out.println("doors - " + car.getDoor());
+
+ Setter
+ Method on a class, that sets the value of private field 
+ public void setMaker(String maker) {
+        this.maker = maker;
+    }
+ calling  --       car.setMaker("Tata");
+
+code -generate - seters, getters - cursor on nextline of set,geter method
+
+ The purpose of these method is to control, and protect, access to private fields
+
+ the benefit of setters is that we can validate an object data , and if data is not valid we can create default values , check assitional security requirments, ensure immutability
+
+# This 
+ this is a special keyword
+ reffers to the instance that was created when the object was instanciated.
+ we can use THIS to access fields on the class
+ if the perameter name and fild name is same then use this , else dont use this 
+
+
+# Constructors 
+ A constructors is used in the creation of an object, that's an instance of a class
+ it is a special type of code block that has a specific name and perameter , much like a method.
+ it has same name as the class itself, it dosn't return any values.
+ you never include a return type from a constructor, not even void.
+ Access modifier specification is required.
+
+ Default constructors 
+
+        BankAccount Satyam = new BankAccount();
+this line -- 
+ if a class dontains no constructors decleration, then  a default constructor is implecitely declared
+ 
+ This construtors has no perameters, and is ofter called no-args (no-argument) constructor.
+ If a class contain any other constructor declerations, then a default constructor is NOT inplecitely declared.
+
+ perameterised constructor - constructor with perameter
+ public BankAccount( int phNumber, String customerName){
+	// code to execute
+ }
+ 
+ constructor Overloading -
+ declaring multiple constructors , with different formal perameters
+ The number of perameter can be different constructors
+ if num of constructor same then the types of constructors must be different
+
+ Constructors Chining 
+
+ Constructors chaining is when one constructor explicitly calls another overloaded constructor 
+
+ calling a constructor from another constructor
+
+ You must use a special statement this() to execute another constructor, passing it arguments if required
+
+ this() must be the first executable statement , if it's used from another constructor
+
+  public BankAccount() {
+        this("123",500.0,"Default Name",
+                "Default Address", "default Phone");
+
+        System.out.println("Empty constructor called");
+    }
+
+ if using constructors dont use any setter -- directly assign value to the field 
+ , also don't call any another method , because this work at the point of object creation and some aspects of initilization might also not have been full filled so dont call any other method or setter
+ 
+# Static variable
+ Static var are also known as static method
+ Every instance of the class share the same static variable
+ So, if change are made to that var , all other instancer of that class will see the effect 
+of the change
+ it is advisible to use class name insted of refrence var to access a static var
+ reftrnce var - house address paper - house is physical cannot change , but paper can replicate ,change - ajj menai mera address likha kal app apka likhogai 
+
+ , object is not req to access an refrence var
+
+ refrence var ==
+	
+ class meriClass {
+ 	public void functionInClass();
+ }
+
+ in main --
+ 
+ meriCalsss RefrenceToMeriCalss = new mericlass();
+
+ in this refrenceToMeriClass is a refrence var -- it create a way to access an object , it can access class function using (.) notation, there is nothing as object variable
+
+ eg where Static var are used
+ Storing cointers
+ generating uniqie id 
+ sorting a const val that dosent change eg pi
+ creating control access, to a shared res -- eg dbase
+
+# Instance Var
+ normal Field inside a class 
+ each obj different val , each has it's own
+
+# Static Methods 
+
+ these are declared using static modifier
+ Static methods can't access instance method and instance var directly 
+ They're usually for operatons that don't  req any data from an instance of a class (from 'this') - current object
+
+ So inside a static method we cannot use this key word.
+ when you dont use instance var , that method should probably a static method  
+ 
+they dont need an object to be called
+
+# instance Methods 
+ instance methods belong to an onject / instance of a class
+ TO use it we first need to create an onject , usually by using new keyword
+ Can access obj var directly 
+ Can also access Static methods , var directly
+
+
+ tip -- if a method is accessing any field then make it an instance method , else if not accessing make it static 
+ 
+ public static void egStaticMethod () {
+ 	// code you want
+  }
+
+ public void egInstanceMethod() {
+ 	// code you want
+  }
+
+# Plain Old Java Object  -(POJO)
+ 
+ Class that generally has instance fields 
+ It is used to house data, and pass data btwn functonal classes
+ It has few, methods other than getter and setter
+ Many db use pojo to read,or write data to database or file streams
+ Also might be called a bean, or JavaBean
+ Sometimes called Entity, because it mirrors database entities
+ Another acronym is DTO, Data Transfer Object
+ 
+ RecordProject 
+
+ # Record
+
+ The record is a special class that contain data, that's not ment to be alterd
+ it seaks to achive immutability, for the data in it's members 
+ it contin only thr most fundamental methods =, such as condtructors and accessors
+ but a developer dont need to write or generate code for any of this 
+
+ public record LPAStudent(int id, String name, String dob, String classList) {
+}
+ 
+ This is a record -- for every record java create field wich are private and final 
+ get mathod -- without perfix (get , is) , accessor method for each component,  tostring()  method
+
+ record don't have any set method as they are immutable , not changable 
+ if you want to change your data then dont use a record ,  
+ record are created to encapsulate data and prevent it from unwanted mutations 
+ 
+ if you are reading a whole lot of data from db or a file sourse , and simpally passing this data around , then the record is a big improvement
+
+# Inheritance
+
+ What is inheritance, and why is it so powerful?
+ We can look at inheritance as a form of code re-use 
+ It's a way to organize class into a parent-child hierarchy, which lets the child inherit (re-use), fields and methods from its parent
+
+ The most generic, or base class starts at the top 
+ Every class bellow is a subclass
+ parent can have multiple childen , A child can only have one direct parent, in java
+ but it will inherit from its parent class's parent and so on
+
+ A class dai allow us to design our class before we build them 
+
+ EXTENDS
+ 
+ Using extends specifies the superclass ( or the parent class) of the calss we're declaring 
+ we can say dog is a subclass, or a child class of animal 
+ A class can specify one and only one c;ass in its extens clause
+ 
+ SUPER()
+ 
+ super() is a lot like  this()
+ it's a way to call a constructor on the super class, directly from the sub class's constructor
+ like this(), it has to be the first ststement
+ bcs of that rule this() , super() cannot be called from the same constructor
+
+ If you don't make call to super() , then java makes it for you, using super's default constructor.
+ if your super class dosen't have default constructor, then you must explicitely call supuer() in all your constructor, passing the right arguments to the constructor
+
+ Code Reuse 
+ All subclasses can execute methods, even through the code is declare on the parent class
+
+ The code dosen't have to be duplicates in each subclass
+ 
+ We can use, from the parent 
+ or we can change that code for the subclass
+
+ # Overriding a method 
+ Overriding a method is when we careate a method on a subclass which has the same signatyre in a super class
+ Signature - method name , type , and perameter
+
+ You override a parent class method, when you want the child class to show different behaviour for that method 
+ 
+ An over ridden method can do one of three things
+ It can implement completaely different behaviour, overriding the parent 
+ 
+ It can simply call the parent calss's method, which is somewhat redundant to do
+ 
+ Or the method can call the parent class's method, and include other code to run so it can extend the functionality for the child class method
+
+ Java.lang.object 
+
+ Every calss you create in java, intrinsically extends a special java class
+ This class is named Object, and it's in the java.lang.package 
+
+ All the class which so not explicitely extend another class, will implecitely extends a calss named Object ,Object is the base class or the root class of every calss in java , which means all class's can use , override objects mehods 
+
+This vs Super
+
+ super is used to access or call the parent class member(var and methods)
+ This is used to call the current class member(var and methods)
+ 
+ NOTE We can use either of them anywhere in a class, except for static elements like a static method. Any attempt to so there, will lead to compile thim errors
+
+ public void PrintMethod() {
+	super.printMethod();
+	System.out.println("Printed in subclass. ");
+ }
+
+ overriding -- is also called runtime polymorphism , dynamic polymorphism
+ text bolck """ who you want type """
+ System.out.printf("You can also use this ")
+ int age = 20;
+ String print = "My age is  %d" , formated (age);
+ System.out.formated(print);
+
+# String methods 
+ there are 60 string methods 
+ String is a sequence of characters, meaning its characters are ordered and indexed, which starts at  0.
+
+ String can split String's methods up into three basic categories:
+ 1) String inspection Methods
+ 2) Methods for comparing string values
+ 3) String manipulation methods
+
+ Sring inspection method 
+ length() - return the char in string 
+ charAt() - return the char index that's passed 
+ indexOf
+ lastIndexOf() - return int , represent the index in the sequence where the string or char passed, can be located in the string 
+ isEmpty() - return true if length is zero
+ isBlank() - ret true if length is 0 OR the string only comtains whaitespace char,added in jdk 11.
+
+      System.out.printf("index of l  = %d %n", helloWorld.indexOf('l',3)); // this looks forword -> means look after index 3 in -> direction 
+      System.out.printf("index of l  = %d %n", helloWorld.lastIndexOf('l' ,8)); // this looks backwords <- meanis look before index 8 in <- direction 
+
+ String comparision method 
+
+ 1) ContentEquals - Returns a boolean fi the string's value is equal to the calue of the argument passed. This method allows for arguments other than string, for any type that is a char sequence.
+ 2) equals - returne a boolena id the string value is equal to the calue if the argument passed.
+ 3) equalsIgnoreCase - Return a bool if the string cal is equal to the value of arg passed 
+ 4) contains - Returns a bool if the string conatins the args passed
+ 5) endWith  and StartsWith - these return a boolean, and are much like the conatins method, but more specific to the placement of the args in the string
+ 6) regionMathes - Returns a boolean, if defined sub-regions are matched 
+
+for eg see AllAboutString code file 
+
+# The String bulider class
+ As string are immutable java provide a mutable class that lets us change its text value, or char sequence 
+
+ For more check StringOptions code file 
+ 
+ append to add text to an existing string
+
+ Some methods unique to the StringBuilder Class
+ 
+ delete deleteCharAt - to deleat char at a point 
+ insert - to insert text at a specified pogistion 
+ reverse - you can reverse the order of the char in the sequence  
+ setLength - setLength can be used to truncet hte sequence, or incluse null sequence to fill out the sequencr to that length
+ 
+ 

@@ -1,0 +1,108 @@
+Java Collection
+ 
+A Collection is an object that represent a group of objects
+Collection object, in various languages include arrays, list, vectors, set, queues, tabels, dictonaries, and maps.
+
+ Oracel's documentation 
+ 
+ "A unified architecture for reperesenting and manipulating collections, enabling collections to be mainpulated independently of implementation details"
+
+# HASH SET 
+ 
+ A hash set ia a class that impements the set interface and tracks duplicates by their hash code
+ 
+
+# the Set
+
+ A set is not implicitely oderd
+ A set contains no duplicates
+ A set may contain a single null element 
+ Sets can be usrful bcs opertaions on them are very fast
+
+ methods available :-
+ 
+ add, remove, clear, contain 
+ 
+ suprisingly we cannot retrive an element forom a set, we can use contains metod to find if an elememt is perset or not
+ 
+ the best peforming implementation of the set interface is the HasthSet class
+ which uses hashing mechanism to store the items
+
+ Union 
+ The union of two or more sets will return elements that are in any or all of the sets, removing any duplicates
+
+ Intersect 
+ It will only return elements which are common in both sets
+
+ Asymmetric Differences
+ A difference subtract elements in common from one set and another, leaving only the distinct elements from the first set as the result
+ 
+ C= A-B
+ D= B-A
+
+ Symmetric Difference 
+ Set symmetric difference are the elements from all sets that do not interset (which are not common) will get returned
+ 
+ Odered Set 
+ 
+ If you need an odered set, you'll want tp consider either the linkedHashSet or the TreeSet
+
+ A linkedHashSet maintains the insertion orderof the elements
+
+ The TreeSet is a sorted collection, sorted by the natural order of the elements or by specifying the sort during the creation of the set
+
+# LinkedHashSet 
+
+ it extends the hashSet 
+ it maintains reletionship btwn elements with the use of a doubly linked list btwn entries
+ the iteration order is therefore the same as the insertion order of the elements , means the order is predictable
+ all the methods for the linkedHashset are the same as those for those for the hashSet
+ complexity is O(1) for ass, contains and remove operations
+
+# TreeSet 
+ 
+ A treeSet's class, uses a ds thats'a derivative of what's called a binary search tree, or Btree for short, which is based on the concept and efficencies of th binary search
+
+ complixity is O(log(n)) ehich means the cost falls somewwhere in between constant and linear time 
+
+ it gives a lot more functionality but at a higher cost than a linkedHashedSet or , a HashSet
+
+  List<Contact> fullList = new ArrayList<>(phones);
+        fullList.addAll(email);
+        fullList.sort(sorted.comparator());
+        System.out.println("----------------------------");
+        fullList.forEach(System.out::println);
+
+	Contact first = fullSet.first();
+        Contact last = fullSet.last();
+
+        System.out.println("-----------------------");
+        System.out.printf("min = %s, first = %s %n", min.getName(), first.getName());
+        System.out.printf("max = %s, last = %s %n", max.getName(), last.getName());
+        System.out.println("-----------------------");
+
+
+ this will give min and max values seperately 
+
+ when would you use a TreeSet
+
+ if your no of elements is nor large, or you want a collection that's sorted, and continiously re-sorted as you add and remove elements, and that shoulden't contain duplicate elements, the treeSet is a good alternative to the ArrayList
+
+ # Map
+
+ A Map in the collection framework is another data Struture
+ Althrough it's still a grouping of elements, is's different, because elements are stored with keyed references 
+ 
+ interface Map<K, V>
+
+ AS with any generic class, the only restrivtion on these types is, they must be refreence types and not primitives
+
+ A java Map can't cpntain duplicate Keys
+ Each key can only map to a single value
+
+ The HashMap is unorderd, the LinkedHashMap is orderd by insertion order, and the TreeMap is sorted Map
+
+ Like the set interface, which has linkedHashSet and TreeSet implementations, The Map interface has the LinkedHashMap and TreeMap classes
+
+ 
+

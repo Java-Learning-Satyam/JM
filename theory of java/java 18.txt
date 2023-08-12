@@ -1,0 +1,36 @@
+# What is a Regular Expression ?
+
+ A regular expression is simply text 
+ it may cintain characters or character combinations that have specal meaning 
+ These are called metacharacters
+ These combinations are interpreted by a regular expression pattern processor
+
+ Some of the uses of regular expressions are
+
+ verify something is formatted correctly 
+ Find occurance of pattern in text
+ Replace matching occurance of patterns in text
+ Extract matching occurance from the text
+ Split your text by a pattern
+
+  class with methods that take regular expression strings or patterns as parameters. A few of these are
+ 
+ String, Scanner, Fotmatter, DateTimeFormatter, Duration, Pattern, Matcher
+
+# The Parts of a regular expression
+ 
+ A regular expression can be made up of combinations od the following: 
+
+ Literals : These have no additioal meaning and are a one to one match. if you specify the literal "abc", the code will match on the first ocurance of "abc", in your string
+
+ Charcater classes : some of these are predefined, others you can define yourself. the peroid or dot is an eg of a predefinrd character class
+
+ Qualifiers : These metachatacters identify the number of occurrences of a character class or literal, required to make a match.  * + ?
+
+ Boundary marchers: or anchors. These specify the position in the text, for eg at start od the txt or the end ^ $ \b
+ 
+ Groups : These identify and allow for the capturing of subexpressions 
+
+ 
+ \\R -- this is called a line brake matcher and matcher and, matches any unicode line break sequence
+ \\s -- this matches any and all white space, includeng new line character combinations

@@ -1,0 +1,105 @@
+java.util.Math
+
+ you can think of this as your mini calculator which conain all operations which are present in your calculator, with some of scientific operations also 
+
+ Math.incremantExact -- this method is used to prevent an overflow, under flow situation, throughing an exception
+
+ MATH.abs -- Returns the absolute value of an int value. if the val is positive orignal value is returned, if the value is negative and less then Min_Value value without sign is retunred
+
+ program using Math different methods
+
+System.out.println(Math.abs(-50));
+//        System.out.println(Math.absExact(Integer.MIN_VALUE));
+        System.out.println("Max = " + Math.max(10, -10));
+        System.out.println("Min = " + Math.min(10.000003, 10.0001));
+
+        System.out.println("Round Down = " + Math.round(10.2));
+        System.out.println("Round up = " + Math.round(10.8));
+        System.out.println("Round ? = " + Math.round(10.5));
+
+        System.out.println("Floor = " + Math.floor(10.8));
+        System.out.println("Ceil = " + Math.floor(10.2));
+
+        System.out.println("Square root of 100 = " + Math.sqrt(100));
+        System.out.println("2 to  the third power (2*2*2) = " + Math.pow(2, 3));
+        System.out.println("10 to the fifth power (10*10*10*10*10) = " + Math.pow(10, 2));
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Math.random()); // this random only gives random numbers between 0.0 and < 1 in double value, also have no perameter 
+        }
+		
+			"" OUTPUT ""
+50
+Max = 10
+Min = 10.000003
+Round Down = 10
+Round up = 11
+Round ? = 11
+Floor = 10.0
+Ceil = 10.0
+Square root of 100 = 10.0
+2 to  the third power (2*2*2) = 8.0
+10 to the fifth power (10*10*10*10*10) = 100.0
+0.8505182632178646
+0.3504406381397417
+0.0581932789165891
+0.30389472802642714
+0.886598826137617
+0.4026212670014452
+0.9822361535716185
+0.06478720058400611
+0.15126255895978724
+0.5655560723994553
+
+Process finished with exit code 0
+
+# Some floating point numers basics 
+
+Precession -- reffers to total no of digits present in that number (no of digits to left + no of digits to right)
+and Scales -- reffers to total no of digits after point (right side digits of point)
+
+ 53.123 p = 5, s = 3
+
+ BigDecimal is recomended for financial applications
+ Big decimal lets you control how numbers are rounded, without losing precision in calculations
+  
+ file name -- BigDecimal
+ 
+# Time Line
+
+ A point on a time line, eg July 17 at 11:25, is called an (Instant) in time
+ An interval( or a span of time) on a date time line is called a (period)
+ it's often repredented by elapsed time in date units such as years, months, or days
+
+ to calculate a time there must be a statdard staring point which is EPOCH
+
+# What's the signigicance of the EPOCH Time?
+
+ 00:00:00 UTC, thursday 1 jan 1970 is called alternatively Unix Time, POSIX Time, Epoch Time, or Unix Epoch Time
+
+ it is used to create time stamps whose meaning, as seconds, can be understood
+ UTC is a symbol that stands for Coordinated Universal Time, which coordinates with GreenWich Mean Time (GMT)
+
+ System.currentTimeMillis -- returns the milliseconds since epoch time,so midnight, jan 1, 1970 UTC
+
+ SystemnanaTime -- uses jvm's high resolution time source, to return nanoseconds, form an arbitary origin time, which is not Epoch time, and may even be a time in the future
+ This origin time may differ accross jvm instances
+ For this reson, this time can't be used to repressent real time, or wall clock time
+ it shouldn't be used as timestamps for data
+ insted, it's purpose is to measure elapsed time for invocations in a single jvm instance
+
+# Locale
+ 
+ Locale is an english word for a place where something heppens
+ 
+ It's also the name of a class in the java.util package that underpins support, fot both localixation and internalization
+
+ java has some built-in support for localization, with methods that let you pass a locale instnce to them.
+
+ 
+ 
+
+
+
+
+

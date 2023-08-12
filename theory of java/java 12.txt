@@ -1,0 +1,71 @@
+Records are implicitely static when used as inner Classes in the same way enums and interfaces are 
+
+# Lambda Expression
+
+ A lembda expression consist of a foemal perameter list, usually but not always declared in parenthesis; the arrow token; and enther an expression or a code block after the arrow token
+	 
+	(perameter1, perameter2, ... ) -> expression;
+ 
+ Functional interface is an interface has one, amd only one, abstract method
+
+ This is how java can infer the method, to derive the perameters and retuen type, for the lembda expression
+
+ This may be also reffered as SAM Single Abstrcat Method
+
+ A functional interface is the target type for lambda expression.
+
+ The Consumer Interface
+ 
+# The consumer interface is in the java.util.funtion package
+
+ it has one abstract method, that takes a single argument, and dosen't return anithing 
+ 
+ void accept(T t)
+
+	 list.forEach((String s) -> System.out.println(s)); // tis can be used for an array list (String s) java can infer the type, it is not compulsary , but you can also use var
+ 
+ (Lambdas are java's first step into functional programming)
+ this is a programming paradigm that focuses on computing and returning results  -- https://youtu.be/dAPL7MQGjyM 
+
+ 
+# The four basic categories of Fundamental interfaces in java.util.function package
+
+ there are over fourty interfaces in this package
+
+ thses all can be categorized as one of the following types
+ 
+ see photo -- java_util_function 
+
+ # Method reference
+ 
+ These provide a more compact, easier-to-read lambda expression, for methods that are alredy designed on a class
+  
+ A method refrence abstracts the lambda expreddion even further, eleminating the need to declare formal perameter
+ We also don't have to pass arguments to the method in question
+ 
+ list.forEach(System.out::println); // method refrence
+ s -> System.out.println(s); // 	Lambda
+ 
+ What methods can be used in method refrences?
+ 
+ that is based on the context of the lambda expression
+ This means the method refrence, is again dependent on the targeted interface's method
+ you can refrence a static method on a class
+ you can reference an instance method from either an instance external to the expression, 
+ or an instance passes as one of the args
+ or you can refrence a constructor, by suing new as the method.
+ 
+# Convinence Methods
+
+ These are default methods on some of the functional interfaces 
+ The Consumer, Predicate, and Function interface all come with these methods as dows the comparator
+
+ channing lambdas
+
+        Function<String, String[]> f0 = uCase // first this is applied , called
+                .andThen(s -> s.concat(" Purohit")) // then form 1 output this is called
+                .andThen(s -> s.split(" "));// then this is called -- last andThen should match the return type of the value form function
+
+ negate in predicate method is simply not gate(Inverter gate) 1 - 0 , 0 - 1 
+
+

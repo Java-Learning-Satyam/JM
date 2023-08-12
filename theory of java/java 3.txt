@@ -1,0 +1,140 @@
+Writing code is similar to writing a document . it constist of special units , whaich form a whole 
+ 
+These are :
+ The EXPRESSION - An expression computes to a single value 
+ The STATEMENT - statements are stand alone units of work 
+ And CODE BLOCKS - A code block is a set of zero , one or more statement , usually groupes together in some way to achive a single goal.
+
+ double Kilometers = (100 * 1.609344);
+
+in this  Kilometers = (100 * 1.609344); this is an expression which inclued variable , values and operators.
+
+by now includind a data type and ending with a semicolo we now create a valid statement 
+
+tip for making code more readable 
+ 1) 1 statement per line .
+ 2) scattering a long statement over multiple lines .
+
+# What is whitespaces 
+ extra spacing palced horizontally or vertically around your code 
+ useually for human redablity purpose 
+ java ignores all of them 
+
+# If then else statement 
+
+ If (condition) {
+ //code to execute 
+ //if condition true
+ }
+ else {
+ //to execute only if the value above is false
+ }
+
+ If (condition) {
+
+ //code to execute 
+ //if condition true
+
+ }
+
+ else if (condition) {
+
+ //code to execute if condition is true
+ //no limit of this type
+
+ }
+
+ else {
+
+ //to execute only if the value above is false
+
+ }
+
+if (gameOver) -- this check if (gameOver == true)
+if (!gameover) -- this check if (gameOver == false)
+
+# Methods 
+ methods are a way in java to write a code ones and then reuse them anywhere in our program
+
+ java's description 
+ a method declares executable code that can be invoked , passing a fixed number of values as arguments.  
+
+ One if the simplest ways to declare a method is 
+  
+ public static void methodName() {
+ 	// method statements form the method body
+ }
+
+ calling 
+ methodName(); -- simple 
+
+  We can pss info to a method using a method perameter 
+ 
+  public static void methodName (p1type p1, p2type p2, {more} ) {
+  	// Method statement form the method body
+  }
+
+# Perameters or arguments?
+
+ Perameters and arguments are terms that are ofter used interchangebly by developers
+ 
+ but techenically , perameter is the defination as shoen in the method decleration , and argument will be the value that's passed to the method when we call it.
+
+ if using a boolean in the perameter then the bool perameter should be first perameter 
+
+ we can pass a method call as argument to other method calls.
+
+# return value
+  We can make our code more poewrful bu using a return value and just by  sending the result of a method to a value . We do this by declaring a data type before the method name , much like we do for a variable ,
+ java states that a return statement returns control to the invoker of a method. 
+
+  public static dataType methodName (p1type p1, p2type p2, {more} ) {
+  	// Method statement 
+	return value;
+  }
+
+ to declare a variable with a type we can declare a method with a type 
+
+ void -- no data would be returned 
+
+ if we use a method with a return type , and using a nested code bolck such as if else then we nee to pass return valur in all segments 
+ as 
+
+ if (condition) {
+
+ return true; //eg
+
+ } 
+ else {
+
+ return false;
+ }
+
+ one common practice is to declare a default return value at the start of a method, and only have a single return statement from a method , returning that var, as
+ 
+ public static boolean methodName(int age) {
+ boolean result = false;
+ if (condition) {
+
+ result = true; //eg
+
+ } 
+ else {
+
+ return result;
+ }
+
+ if we when checking a condition and if a condition is true and we want to return from that condition then we use a retuen in a method without using any retun-data-type while declearing 
+
+ public static void methodName(int age) {
+ if (age > 21) {
+ return; // retutn type is void but to exit from condtion we use this 
+ } 
+
+# Method Overloading 
+ Method overloading occurs when a class has multiple method , with the same name , but tne methods are declares with different perameters 
+ so you can execute a method with same name but call it with different arguments 
+
+ method signature -- it consist of the name of the method , and the uniqueness of the decleration of its perameters. It doesnot include a perameter name, return type
+
+if the signature is not unique it will create a compiler error even different return type will not be counted ,only perameter

@@ -1,0 +1,76 @@
+public class FirstClass {
+    public static void main(String[] args) {
+        System.out.print("Hello World");
+    }
+}
+
+# Access Modifiers
+ The public java keyword is what's called an access modifier
+ An access modifier allows us to define which part of our code , or even someone else's code , can access a particular element 
+
+
+# class Keyword
+ The class keyword is used to define a class . The class name will be the text following the keyword , so FirstClass in this case....
+
+# Method 
+ 
+ A methos is a collection of statements ,one or more , that peform an operation 
+ 
+ java looks for a special method  called the main method 
+ 
+ it's the entry point for any java code , and java looks for the main method to stat and run the program when we use it
+ 
+ you can also create your own mathods
+ Notice the left and the right culrly braces , the are used to define the code block , or class body
+
+$  System.out.println("Hello, Satyam"); -- to print output in new line
+
+# if-then statement in java 
+ The if-then statement is the most basic of all the control flow statements. It tells your program to execute a certain section of code , only if a particular test evaluates to true 
+ 
+ this is known as conditional logic
+ conditional logic uses specific statements in java to allow us to check a condition , and ececute a certain code based on weather that clndition (the expression) is true ar false 
+
+ this is used to assign = 
+ this is equality operator == this tests to see if two operands are considerd equal , and return a boolean value  , in other words is the left operand is equals to the right operand
+
+ A code bolck allows us to execute one or more statement at onse {code between in thsi is known as code block } 
+
+ If 
+
+ $  boolean isAllean = false;
+        if (isAllean == false) {  // can also write as (!isAlliean)
+            System.out.println("This is no an allien");
+            System.out.println("And im scared allien");
+        }
+
+ != this is not operator true ka false ka true
+
+ AND -- both side  are true then true &&
+ OR  -- only one left or right need to be true || 
+
+$ if(! isCar) -- this is equals to if (isCar == false) -- that is a short form notation , returns true if false , vice aa versa 
+  
+# Ternary operator 
+  the ternary operator java offically called as conditional operator - has 3 operands , the only operator currently in java that does have 3 
+ 
+ The strucure of this operand is
+ 
+ Operand1 ? operand2 : operand3
+
+ 1 is boolean if true then return 1 else return 2 operand
+
+ The ternary operator is a shortcut to assign one of two values to a variable , depending on a given condition
+ 
+$ String makerOfCar = "Volkswargen";
+        boolean isDomestic = makerOfCar == "Volkswargen" ? false : true; -- in this as the maker of car is not domestic we assign false to it 
+
+        if(isDomestic) {
+            System.out.println("This car is domestic to our country");
+	   } -- we can replace this as 
+ String s = (isDomestic) ? "This car is domestic" : "This car is not domestic";
+ System.out.println(s);
+
+or 
+ String ageText = (ageOfClint >= 18) ? "over 18" : "still a kid";
+    
